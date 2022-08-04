@@ -1,0 +1,104 @@
+(DEFINE-FILE-INFO PACKAGE "INTERLISP" READTABLE "INTERLISP" BASE 10)
+
+(FILECREATED " 4-Aug-2022 09:47:49" {DSK}<home>larry>test>new>printing>HCFILES.;1 4587   
+
+      :CHANGES-TO (VARS HCFILESCOMS)
+                  (FNS HCFILES BADFILE))
+
+
+(PRETTYCOMPRINT HCFILESCOMS)
+
+(RPAQQ HCFILESCOMS ((FNS BADFILE HCFILES)
+                    (INITVARS (HCFILES)
+                           (BADFILES))))
+(DEFINEQ
+
+(BADFILE
+  [LAMBDA NIL                                              (* ; "Edited 22-Jun-2022 09:40 by larry")
+    (pushnew BADFILES TFILE)
+    (LET [(STR (OPENSTREAM "BADFILES.TXT" 'APPEND]
+         (SETFILEPTR STR -1)
+         (PRINT TFILE STR)
+         (CLOSEF STR))
+    (RETFROM 'HCFILES])
+
+(HCFILES
+  [LAMBDA (TFILE DEST REDOFLG TOPDIRLEN)                   (* ; "Edited 17-Jul-2022 12:44 by larry")
+                                                           (* ; "Edited 21-Jun-2022 22:59 by larry")
+                                                           (* ; "Edited 31-May-2022 09:31 by larry")
+                                                           (* ; "Edited 20-Feb-2022 12:16 by larry")
+                                                           (* ; "Edited 21-Aug-2021 20:56 by larry")
+    (DECLARE (SPECVARS TFILE))
+    (if (NULL TFILE)
+        then (SETQ TFILE MEDLEYDIR))
+    (COND
+       ((DIRECTORYNAMEP TFILE)
+
+        (* ;; "canonicalize")
+
+        (SETQ TFILE (DIRECTORYNAME TFILE))
+        [OR TOPDIRLEN (SETQ TOPDIRLEN (CL:LENGTH (FILENAMEFIELD.STRING TFILE 'DIRECTORY]
+        (CL:UNLESS DEST
+            (ShellCommand (CONCAT "mkdir -p " (UNIX-GETENV "MEDLEYDIR")
+                                 "/tmp/psfiles/"))
+            (SETQ DEST (MEDLEYDIR "tmp/psfiles" NIL T T)))
+
+        (* ;; "first deal with files in this directory")
+
+        (for EXT in '("TED*" "SKETCH" "T*XT")
+           do (for X in (DIRECTORY (CONCAT TFILE "*." EXT ";*"))
+                 do (HCFILES X DEST REDOFLG TOPDIRLEN)))
+
+        (* ;; " then deal with subdirs ")
+
+        (for X in (DIRECTORY (CONCAT TFILE "*")) when [for SKIP in '(">." ">dinfo>")
+                                                         always (NOT (STRPOS SKIP (L-CASE X]
+           when (DIRECTORYNAMEP X) do (HCFILES X DEST REDOFLG TOPDIRLEN)))
+       [(SETQ TFILE (INFILEP TFILE))
+        (LET* ((TF (UNPACKFILENAME.STRING TFILE))
+               (NAME (LISTGET TF 'NAME))
+               (DIR (LISTGET TF 'DIRECTORY))
+               (PSFILE (PACKFILENAME.STRING
+                        'EXTENSION
+                        (if (EQ REDOFLG 'IP)
+                            then "IP"
+                          else "PS")
+                        'NAME
+                        (if (EQ DEST T)
+                            then                             (* ; "with the tedit file")
+                                 NAME
+                          else (CONCAT [PACK (SUBST '- '> (UNPACK (SUBSTRING DIR (IPLUS 2 TOPDIRLEN)
+                                                                         -1]
+                                      "-" NAME))
+                        'HOST
+                        (LISTGET TF 'HOST)
+                        'DIRECTORY
+                        (if (EQ DEST T)
+                            then DIR
+                          else DEST)))
+               (TEXTSTREAM))
+              (if (AND (NOT REDOFLG)
+                       (INFILEP PSFILE))
+                  then                                       (* ; " do nothing")
+                       (PRINTOUT T PSFILE " already there" T)
+                elseif (EQ REDOFLG 'TEST)
+                  then (PRINTOUT T TFILE "-> " PSFILE T)
+                       (CLOSEF (OPENTEXTSTREAM TFILE))
+                elseif (MEMBER TFILE BADFILES)
+                  then (PRINTOUT T "Skipping " TFILE " on BADFILES")
+                else (PRINTOUT T "Converting " TFILE " to " PSFILE "...")
+                     (TEDIT.FORMAT.HARDCOPY (SETQ TEXTSTREAM (OPENTEXTSTREAM TFILE))
+                            PSFILE T NIL NIL NIL (if (EQ REDOFLG 'IP)
+                                                     then 'INTERPRESS
+                                                   else 'POSTSCRIPT))
+                     (printout T " DONE" T)
+                     (CLOSEF? TEXTSTREAM]
+       (T (PRINTOUT T "no such file " T])
+)
+
+(RPAQ? HCFILES )
+
+(RPAQ? BADFILES )
+(DECLARE%: DONTCOPY
+  (FILEMAP (NIL (407 4519 (BADFILE 417 . 725) (HCFILES 727 . 4517)))))
+STOP
