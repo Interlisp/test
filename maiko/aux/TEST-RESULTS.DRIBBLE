@@ -1,0 +1,81 @@
+NIL
+3/40_ LOAD(OPCODES.DFASL]
+
+{DSK}<home>larry>test>maiko>auto>OPCODES.DFASL;1
+XCL Compiler output for source file {DSK}<home>larry>ilisp>medley>internal>test>Maiko>AUTO>OPCODES.TEST;2
+Source file created 17-Dec-2020 18:44:48
+FASL file created Sunday, 31 July 2022, 13:32:00
+
+1
+Test "BITBLT-DIAGONALS" failed in file "unknown"
+Test "BITBLT-SLOPED-LINES" failed in file "unknown"
+3.14159273.1415927AT DEPTH 4
+AT DEPTH 3
+AT DEPTH 2
+AT DEPTH 1
+AT DEPTH 0
+Test: Opcode aref1, type (unsigned-byte 1), succeeded.
+Test: Opcode aref1, type (unsigned-byte 8), succeeded.
+Test: Opcode aref1, type (unsigned-byte 16), succeeded.
+Test: Opcode aref1, type (signed-byte 16), succeeded.
+Test: Opcode aref1, type (signed-byte 32), succeeded.
+Test: Opcode aref1, type single-float, succeeded.
+Test: Opcode aref1, type string-char, succeeded.
+Test: Opcode aref1, type t, succeeded.
+Test: Opcode aref1, type il:xpointer, succeeded.
+Test: Opcode aref1, punt cases, succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type (unsigned-byte 1), succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type (unsigned-byte 8), succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type (unsigned-byte 16), succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type (signed-byte 16), succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type (signed-byte 32), succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type single-float, succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type string-char, succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type fat-string-char, succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type t, succeeded.
+Test: Opcode ARRAYREAD (MISC3 9), type il:xpointer, succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type (unsigned-byte 1), succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type (unsigned-byte 8), succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type (unsigned-byte 16), succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type (signed-byte 16), succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type (signed-byte 32), succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type single-float, succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type thin-string-char, succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type fat-string-char, succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type t, succeeded.
+Test: Opcode ARRAYWRITE (MISC4 7), type il:xpointer, succeeded.
+Test: Opcodes IPLUS,FPLUS, and PLUS, both args integer, succeeded.
+Test: Opcodes IPLUS,FPLUS, and PLUS, both args float, succeeded.
+Test: Opcodes IPLUS,FPLUS, and PLUS, mixed args, succeeded.
+Test: Opcodes IDIFFERENCE,FDIFFERENCE, and DIFFERENCE, both args integer, succeeded.
+Test: Opcodes IDIFFERENCE,FDIFFERENCE, and DIFFERENCE, both args float, succeeded.
+Test: Opcodes IDIFFERENCE,FDIFFERENCE, and DIFFERENCE, mixed args, succeeded.
+Test: Opcodes ITIMES,FTIMES, and TIMES, both args integer, succeeded.
+Test: Opcodes ITIMES,FTIMES, and TIMES, both args float, succeeded.
+Test: Opcodes ITIMES,FTIMES, and TIMES, mixed args, succeeded.
+Test: Opcodes IQUOTIENT,FQUOTIENT, and QUOTIENT, both args integer, succeeded.
+Test: Opcodes IQUOTIENT,FQUOTIENT, and QUOTIENT, both args float, succeeded.
+Test: Opcodes IQUOTIENT,FQUOTIENT, and QUOTIENT, args mixed, succeeded.
+Test "ERROR/0" failed in file "unknown"
+Test: Opcodes IGREATERP,FGREATERP, and GREATERP, both args integer, succeeded.
+Test: Opcodes IGREATERP,FGREATERP, and GREATERP, both args integer, succeeded.
+Test: Opcodes IGREATERP,FGREATERP, and GREATERP, both args integer, succeeded.
+Test: Opcode BOX (UBFLOAT1 0), succeeded.
+Test: Opcode UNBOX (UBFLOAT1 1), succeeded.
+Test: Opcode UFABS (UBFLOAT1 2), succeeded.
+Test: Opcode UFNEGATE (UBFLOAT1 3), succeeded.
+Test: Opcode UFIX (UBFLOAT1 4), succeeded.
+Test: Opcode UFADD (UBFLOAT2 0), succeeded.
+Test: Opcode UFSUB (UBFLOAT2 1), succeeded.
+Test: Opcode UFMULT (UBFLOAT2 3), succeeded.
+Test: Opcode UFDIV (UBFLOAT2 4), succeeded.
+Test: Opcode UFGREAT (UBFLOAT2 5), succeeded.
+Test: Opcode UFMAX (UBFLOAT2 6), succeeded.
+Test: Opcode UFMAX (UBFLOAT2 7), succeeded.
+Test: Opcode POLY (UBFLOAT3 0), succeeded.
+Test: Function SIN, succeeded.
+Test: Function COS, succeeded.
+Test: Function EXP, succeeded.
+Test: Function LOG, succeeded.
+{DSK}<home>larry>test>maiko>auto>OPCODES.DFASL;1
+3/41_ DRIBBLE]
